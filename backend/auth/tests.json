@@ -1,0 +1,37 @@
+{
+  "tests": [
+    {
+      "name": "Send SMS code",
+      "method": "POST",
+      "body": {
+        "action": "send_code",
+        "phone": "+79991234567"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "message": "string",
+        "expires_in": "number"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Verify code",
+      "method": "POST",
+      "body": {
+        "action": "verify_code",
+        "phone": "+79991234567",
+        "code": "123456",
+        "device_info": "Chrome/Windows"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "token": "string",
+        "user": {
+          "id": "number",
+          "phone": "string"
+        }
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}

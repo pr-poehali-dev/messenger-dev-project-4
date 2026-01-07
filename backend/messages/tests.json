@@ -1,0 +1,35 @@
+{
+  "tests": [
+    {
+      "name": "Get user chats",
+      "method": "GET",
+      "queryStringParameters": {
+        "action": "get_chats"
+      },
+      "headers": {
+        "X-Authorization": "Bearer test_token"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "chats": "array"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Search users by phone",
+      "method": "GET",
+      "queryStringParameters": {
+        "action": "search_users",
+        "phone": "7999"
+      },
+      "headers": {
+        "X-Authorization": "Bearer test_token"
+      },
+      "expectedStatus": 200,
+      "expectedBody": {
+        "users": "array"
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
